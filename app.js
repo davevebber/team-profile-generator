@@ -15,13 +15,44 @@ const idArray = [];
 
 function appMenu() {
 
-  function createManager() {
-    console.log("Create your team");
+  function createTeam() {
+
+    inquirer.prompt([
+      {
+        type: "list",
+        name: "memberChoice",
+        message: "Which type of team member would you like to add?",
+        choices: [   
+          "Manager",
+          "Engineer",
+          "Intern",
+          "I don't want to add any more team members"
+        ]
+      }
+    ]).then(userChoice => {
+      switch (userChoice.memberChoice) {
+        case "Manager":
+          addManager();
+          break;
+        case "Engineer":
+          addEngineer();
+          break;
+        case "Intern":
+          addIntern();
+          break;
+        default:
+          buildTeam();
+      }
+    });
+  };
+
+  function addManager() {
+    console.log("Please build your team");
     inquirer.prompt([
       {
         type: "input",
         name: "managerName",
-        message: "What is the manager's name?",
+        message: "What is the team manager's name?",
         validate: answer => {
           if (answer !== "") {
             return true;
@@ -40,7 +71,7 @@ function appMenu() {
           if (pass) {
             return true;
           }
-          return "Please enter a number greater than zero.";
+          return "Please enter a positive number greater than zero.";
         }
       },
       {
@@ -68,7 +99,7 @@ function appMenu() {
           if (pass) {
             return true;
           }
-          return "Please enter a number greater than zero.";
+          return "Please enter a positive number greater than zero.";
         }
       }
     ]).then(answers => {
@@ -77,34 +108,7 @@ function appMenu() {
       idArray.push(answers.managerId);
       createTeam();
     });
-  }
-
-  function createTeam() {
-
-    inquirer.prompt([
-      {
-        type: "list",
-        name: "memberChoice",
-        message: "Which type of team member would you like to add?",
-        choices: [
-          "Engineer",
-          "Intern",
-          "I don't want to add any more team members"
-        ]
-      }
-    ]).then(userChoice => {
-      switch (userChoice.memberChoice) {
-        case "Engineer":
-          addEngineer();
-          break;
-        case "Intern":
-          addIntern();
-          break;
-        default:
-          buildTeam();
-      }
-    });
-  }
+  };
 
   function addEngineer() {
     inquirer.prompt([
@@ -135,7 +139,7 @@ function appMenu() {
             }
 
           }
-          return "Please enter a number greater than zero.";
+          return "Please enter a positive number greater than zero.";
         }
       },
       {
@@ -200,7 +204,7 @@ function appMenu() {
             }
 
           }
-          return "Please enter a number greater than zero.";
+          return "Please enter a positive number greater than zero.";
         }
       },
       {
@@ -237,13 +241,14 @@ function appMenu() {
   }
 
   function buildTeam() {
+    // Create the output directory if the output path doesn't exist
     if (!fs.existsSync(OUTPUT_DIR)) {
       fs.mkdirSync(OUTPUT_DIR)
     }
     fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
   }
 
-  createManager();
+  createTeam();
 
 }
 

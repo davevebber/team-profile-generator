@@ -1,26 +1,28 @@
 {
   "name": "team-profile-generator",
   "version": "1.0.0",
-  "description": "team profile generator to quickly have a list of employees email, github, etc.",
-  "main": "Index.js",
+  "description": "app to generate an html outline of a team",
+  "main": "app.js",
   "directories": {
     "lib": "lib"
   },
+  "dependencies": {
+    "inquirer": "^8.0.0",
+    "jest": "^26.6.3"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "node test",
+    "start": "node app"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davevebber/team-profile-generator.git"
   },
-  "keywords": [],
-  "author": "",
+  "author": "dave vebber",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/davevebber/team-profile-generator/issues"
   },
-  "homepage": "https://github.com/davevebber/team-profile-generator#readme",
-  "devDependencies": {
-    "jest": "^26.6.3"
-  }
+  "homepage": "https://github.com/davevebber/team-profile-generator#readme"
 }
