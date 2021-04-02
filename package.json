@@ -12,7 +12,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "node test",
+    "test": "jest",
     "start": "node app"
   },
   "repository": {

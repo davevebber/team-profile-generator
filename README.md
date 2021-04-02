@@ -27,7 +27,9 @@ Bootstrap
 Node
 
 ## Usage Information <a name="usage"></a>
-To use this app simply type "npm run start" from the root folder.
+To use this app simply type "npm run start" from the root folder. Below is a link to a walkthrough video I have added as well.
+
+https://drive.google.com/file/d/1eBenA3EeM_ZpTXX-u-JGeedkAVPbXW72/view
 
 ## Test Instructions <a name="test-instructions"></a>
 To run tests simply type "npm test" and jest with perform tests.
