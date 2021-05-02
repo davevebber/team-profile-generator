@@ -1,136 +1,75 @@
 
   <!DOCTYPE html>
-  <html>
-  <head>
-  <title>Page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <style>
-        .ul{
-            list-style-type:none;
-            right: 0;
-            position: relative;
-        }
-        li{
-            float: left;
-            margin: 20px;
-        }
-        .cardbody{
-            width: 200px;
-            border-radius: 10px;
-            box-shadow: 5px 10px 8px #888888;
-        }
-    </style>
-  <div class="jumbotron" style="background: gray" >
-    <h1 class="text-center" >Company Employees</h1>
-    </div>
-    <div class='container'>
-    <ul class="ul">
-    
-    <li>
-    <div class="col-md-3">
-    <div class="card cardbody">
-      <div class="card-header" style="background: #5178ED">
-                   Dave<br>
-                   <div class="fa fa-edit">Manager</div>
-                  </div>
-      <div class="card-body">
-        <form role="form">			
-          <div class="form-group">
-              <label for="reserve-unique-id" id="reserve-unique-id">ID: 1</label>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Team</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c502137733.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-12 jumbotron mb-3 team-heading">
+              <h1 class="text-center">My Team</h1>
           </div>
-          <div class="form-group">
-            <label for="reserve-email" id="reserve-email">Email: dave@gmail.com</label>
-          </div>
-          <div class="form-group">
-              <label for="reserve-phone" id="reserve-office-number">Office Number: 1</label>					
-          </div>				
-          </form>
       </div>
-    </div>
   </div>
-  </li>
-  
-
-        <li>
-        <div class="col-md-3">
-                    <div class="card cardbody">
-                      <div class="card-header" style="background: #5178ED">
-                                   Mark<br>
-                                  <div><i class="fa fa-book"></i> Engineer</div><i class="">
-                                  </div>
-                      <div class="card-body">
-                        <form role="form">			
-                          <div class="form-group">
-                              <label for="reserve-unique-id" id="reserve-unique-id">ID:2 </label>
-                          </div>
-                          <div class="form-group">
-                            <label for="reserve-email" id="reserve-email">Email: dave@gmail.com</label>
-                          </div>
-                          <div class="form-group">
-                              <label for="reserve-phone" id="github">Github: mark</label>					
-                          </div>				
-                          </form>
-                      </div>
-                    </div>
-                  </div>
-                  </li>
-    
-
-        <li>
-        <div class="col-md-3">
-                    <div class="card cardbody">
-                      <div class="card-header" style="background: #5178ED">
-                                   tom<br>
-                                  <div><i class="fa fa-book"></i> Engineer</div><i class="">
-                                  </div>
-                      <div class="card-body">
-                        <form role="form">			
-                          <div class="form-group">
-                              <label for="reserve-unique-id" id="reserve-unique-id">ID:3 </label>
-                          </div>
-                          <div class="form-group">
-                            <label for="reserve-email" id="reserve-email">Email: dave@gmail.com</label>
-                          </div>
-                          <div class="form-group">
-                              <label for="reserve-phone" id="github">Github: tom</label>					
-                          </div>				
-                          </form>
-                      </div>
-                    </div>
-                  </div>
-                  </li>
-    
-
-    <li>
-    <div class="col-md-3">
-        <div class="card cardbody">
-          <div class="card-header" style="background: #5178ED">
-                 Mark Zuckerburg<br>
-                <div><i class="fa fa-coffee"></i> Intern</div>
-                </div>
-          <div class="card-body">
-          <form role="form">			
-            <div class="form-group">
-              <label for="reserve-unique-id" id="reserve-unique-id">ID:4 </label>
-            </div>
-            <div class="form-group">
-            <label for="reserve-email" id="reserve-email">Email: dave@gmail.com</label>
-            </div>
-            <div class="form-group">
-              <label for="reserve-phone" id="school">School: UCLA</label>					
-            </div>				
-            </form>
+  <div class="container">
+      <div class="row">
+          <div class="team-area col-12 d-flex justify-content-center">
+              
+      <div class="card employee-card">
+      <div class="card-header">
+          <h2 class="card-title">dave</h2>
+          <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>Manager</h3>
+      </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item">ID: 2</li>
+              <li class="list-group-item">Email: <a href="mailto:dave@test.com">dave@test.com</a></li>
+              <li class="list-group-item">Office number: 41</li>
+          </ul>
+      </div>
+  </div>
+      
+      <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">Tom</h2>
+      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>Engineer</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: 53</li>
+          <li class="list-group-item">Email: <a href="mailto:tom@test.com">tom@test.com</a></li>
+          <li class="list-group-item">GitHub: <a href="https://github.com/tom" target="_blank" rel="noopener noreferrer">tom</a></li>
+      </ul>
+  </div>
+</div>
+      
+      <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">susan</h2>
+      <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>Intern</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: 52</li>
+          <li class="list-group-item">Email: <a href="mailto:susan@test.com">susan@test.com</a></li>
+          <li class="list-group-item">School: ucla</li>
+      </ul>
+  </div>
+</div>
+      
           </div>
-        </div>
-              </div>
-              </li>
-    
-    </ul>
-    </div>
-  </body>
-  </html>
+      </div>
+  </div>
+</body>
+</html>
   

@@ -1,160 +1,118 @@
-function generateHTML(data) {
-    return `
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <title>Page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <style>
-        .ul{
-            list-style-type:none;
-            right: 0;
-            position: relative;
-        }
-        li{
-            float: left;
-            margin: 20px;
-        }
-        .cardbody{
-            width: 200px;
-            border-radius: 10px;
-            box-shadow: 5px 10px 8px #888888;
-        }
-    </style>
-  <div class="jumbotron" style="background: gray" >
-    <h1 class="text-center" >Company Employees</h1>
-    </div>
-    <div class='container'>
-    <ul class="ul">
-    ${makeCards(data)}
-    </ul>
-    </div>
-  </body>
-  </html>
-  `;
-  };
-  function makeCards(data) {
-    return data
-      .map(x => {
-        let position = x.getRole();
-        switch (position) {
-          case "Manager":
-            return makeManagerCard(x);
-            break;
-          case "Engineer":
-            return makeEngineerCard(x);
-            break;
-          case "Intern":
-            return makeInternCard(x);
-            break;
-        }
-      })
-      .join("\n");
-  }
-  function makeManagerCard(x) {
-    console.log(x);
-    let mangerCard = `
-    <li>
-    <div class="col-md-3">
-    <div class="card cardbody">
-      <div class="card-header" style="background: #5178ED">
-                   ${x.name}<br>
-                   <div class="fa fa-edit">${x.getRole()}</div>
-                  </div>
-      <div class="card-body">
-        <form role="form">			
-          <div class="form-group">
-              <label for="reserve-unique-id" id="reserve-unique-id">ID: ${
-                x.id
-              }</label>
-          </div>
-          <div class="form-group">
-            <label for="reserve-email" id="reserve-email">Email: ${
-              x.email
-            }</label>
-          </div>
-          <div class="form-group">
-              <label for="reserve-phone" id="reserve-office-number">Office Number: ${
-                x.officeNumber
-              }</label>					
-          </div>				
-          </form>
+// create the team
+const generateTeam = team => {
+
+  // create the manager html
+  const generateManager = manager => {
+      return `
+      <div class="card employee-card">
+      <div class="card-header">
+          <h2 class="card-title">${manager.getName()}</h2>
+          <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i>${manager.getRole()}</h3>
       </div>
-    </div>
+      <div class="card-body">
+          <ul class="list-group">
+              <li class="list-group-item">ID: ${manager.getId()}</li>
+              <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+              <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
+          </ul>
+      </div>
   </div>
-  </li>
-  `;
-    return mangerCard;
-  }
-  function makeEngineerCard(x) {
-    let engineerCard = `
-        <li>
-        <div class="col-md-3">
-                    <div class="card cardbody">
-                      <div class="card-header" style="background: #5178ED">
-                                   ${x.name}<br>
-                                  <div><i class="fa fa-book"></i> ${x.getRole()}</div><i class="">
-                                  </div>
-                      <div class="card-body">
-                        <form role="form">			
-                          <div class="form-group">
-                              <label for="reserve-unique-id" id="reserve-unique-id">ID:${
-                                x.id
-                              } </label>
-                          </div>
-                          <div class="form-group">
-                            <label for="reserve-email" id="reserve-email">Email: ${
-                              x.email
-                            }</label>
-                          </div>
-                          <div class="form-group">
-                              <label for="reserve-phone" id="github">Github: ${
-                                x.github
-                              }</label>					
-                          </div>				
-                          </form>
-                      </div>
-                    </div>
-                  </div>
-                  </li>
-    `;
-    return engineerCard;
-  }
-  function makeInternCard(x) {
-    let internCard = `
-    <li>
-    <div class="col-md-3">
-        <div class="card cardbody">
-          <div class="card-header" style="background: #5178ED">
-                 ${x.name}<br>
-                <div><i class="fa fa-coffee"></i> ${x.getRole()}</div>
-                </div>
-          <div class="card-body">
-          <form role="form">			
-            <div class="form-group">
-              <label for="reserve-unique-id" id="reserve-unique-id">ID:${
-                x.id
-              } </label>
-            </div>
-            <div class="form-group">
-            <label for="reserve-email" id="reserve-email">Email: ${
-              x.email
-            }</label>
-            </div>
-            <div class="form-group">
-              <label for="reserve-phone" id="school">School: ${x.school}</label>					
-            </div>				
-            </form>
+      `;
+  };
+
+  // create the html for engineers
+  const generateEngineer = engineer => {
+      return `
+      <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">${engineer.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-glasses mr-2"></i>${engineer.getRole()}</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${engineer.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+          <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+      </ul>
+  </div>
+</div>
+      `;
+  };
+
+  // create the html for interns
+  const generateIntern = intern => {
+      return `
+      <div class="card employee-card">
+  <div class="card-header">
+      <h2 class="card-title">${intern.getName()}</h2>
+      <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+  </div>
+  <div class="card-body">
+      <ul class="list-group">
+          <li class="list-group-item">ID: ${intern.getId()}</li>
+          <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+          <li class="list-group-item">School: ${intern.getSchool()}</li>
+      </ul>
+  </div>
+</div>
+      `;
+  };
+
+  const html = [];
+
+  html.push(team
+      .filter(employee => employee.getRole() === "Manager")
+      .map(manager => generateManager(manager))
+  );
+  html.push(team
+      .filter(employee => employee.getRole() === "Engineer")
+      .map(engineer => generateEngineer(engineer))
+      .join("")
+  );
+  html.push(team
+      .filter(employee => employee.getRole() === "Intern")
+      .map(intern => generateIntern(intern))
+      .join("")
+  );
+
+  return html.join("");
+
+}
+
+// export function to generate entire page
+module.exports = team => {
+
+  return `
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>My Team</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/c502137733.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-12 jumbotron mb-3 team-heading">
+              <h1 class="text-center">My Team</h1>
           </div>
-        </div>
-              </div>
-              </li>
-    `;
-    return internCard;
-  }
-  
-  module.exports = generateHTML;
+      </div>
+  </div>
+  <div class="container">
+      <div class="row">
+          <div class="team-area col-12 d-flex justify-content-center">
+              ${generateTeam(team)}
+          </div>
+      </div>
+  </div>
+</body>
+</html>
+  `;
+};
